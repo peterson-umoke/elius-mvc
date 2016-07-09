@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/peterson-umoke/elius-mvc/issues"
   },
-  "homepage": "https://github.com/peterson-umoke/elius-mvc#readme"
+  "homepage": "https://github.com/peterson-umoke/elius-mvc#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-typescript": "^2.13.6",
+    "gulp-uglify": "^1.5.4"
+  }
 }
