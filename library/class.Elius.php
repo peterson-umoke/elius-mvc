@@ -9,43 +9,24 @@
  */
 
 class Elius {
-
-	protected $_controller = "index";
-	protected $_method = "index";
-	protected $_params = [];
-	protected $_urlGet;
+	protected $_controllers = "index",
+			$_methods = "index",
+			$_params = [],
+			$_url;
 
 	public function __construct() {
-		$this->_urlGet = $this->urlParser();
-		$this->eliusControllers($this->_urlGet);
+		$this->_url = $this->getUrl();
+		print_r($this->_url);
 	}
 
-	private function urlParser() {
-
-		if(isset($_GET['q'])) {
+	public function getUrl() {
+		if(isset($_GET['q'])):
 			$url = $_GET['q'];
 			$url = rtrim($url,'/');
 			$url = filter_var($url,FILTER_SANITIZE_URL);
-			$url = explode('/', $url);
+			$url = explode("/",$url);
 
 			return $url;
-		}
-	}
-
-	private function eliusControllers($urlFirn) {
-		if(file_exists(CONTROLLERS_DIR.DS.'controller.'.ucwords($urlFirn[0]).'.php')) {
-			$this->_controller = ucwords($urlFirn[0]);
-			array_shift($urlFirn);
-		}
-		require_once CONTROLLERS_DIR.DS.'controller.'.$this->_controller.'.php';
-		$this->_controller = new $this->_controller();
-	}
-
-	private function eliusMethods() {
-
-	}
-
-	private function eliusParams() {
-
+		endif;
 	}
 }

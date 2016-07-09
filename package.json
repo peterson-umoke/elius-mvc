@@ -1,0 +1,19 @@
+{
+  "name": "elius-mvc-framework",
+  "version": "3.2.1",
+  "description": "# Choose your styling options You can use either Compass or Gulp.js",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterson-umoke/elius-mvc.git"
+  },
+  "author": "Peterson Umoke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterson-umoke/elius-mvc/issues"
+  },
+  "homepage": "https://github.com/peterson-umoke/elius-mvc#readme"
+}

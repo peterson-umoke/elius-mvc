@@ -1,0 +1,11 @@
+// @import major imports
+@import "base/imports-fresh";
+
+// normalize-scss
+@import "base/normalize";
+
+// import s base
+@import "base/base";
+
+// imports mixins
+@import "mixins/mixins";
