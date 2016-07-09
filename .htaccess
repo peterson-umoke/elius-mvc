@@ -1,0 +1,16 @@
+# turn on the engine and direct all the links to the main public file
+RewriteEngine	On
+RewriteRule		^$	public/	[L]
+
+# clean the URL
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteCond	%{REQUEST_FILENAME}	!-f
+
+# rewrite the urls
+RewriteRule		^(.*)$	public/index.php?q=$1	[QSA,L]
+
+# Turn On Multiviews
+Options	-Multiviews
+
+# rewrite the base URL
+RewriteBase	/elius-mvc/
