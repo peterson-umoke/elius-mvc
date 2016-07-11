@@ -59,6 +59,8 @@ define("VIEWS_DIR",APP_DIR.DS.'views');
 define("CONTROLLERS_DIR",APP_DIR.DS.'controllers');
 define("MODELS_DIR",APP_DIR.DS.'models');
 define("PUBLIC_DIR",BASE.'public');
+define("BASE_URL",$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].'/elius-mvc/');
+// define("BASE_URL",$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 define("LIBRARY_DIR",BASE.DS.'library');
 
 /* dat's all folks */

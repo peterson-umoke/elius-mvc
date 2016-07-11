@@ -1,21 +1,34 @@
 // require plugins
-var gulp  = require("gulp");
+var gulp = require('gulp');
+var tsc = require('gulp-typescript');
 var sass = require("gulp-sass");
-var typescript = require("gulp-typescript");
-var autoprefixer = require("autoprefixer");
+var minjs = require("gulp-uglify");
+var config = require("./gulp.config")();
+var autoprefixer = require("gulp-autoprefixer");
 
-// paths
-var sass_dir = "./assets/sources/sass/**/*.scss";
-var ts_dir = "./assets/sources/typescript/**/*.ts";
-var sass_output = "./assets/builds/css";
-var ts_output = "./assets/builds/js/";
+gulp.task("tsc-compile",function() {
+	var sourceTs = [
+		config.inputTs
+	];
 
-gulp.task("compile-sass",function(){
-	return gulp
-    // Find all `.scss` files from the `stylesheets/` folder
-    .src(sass_dir)
-    // Run Sass on those files
-    .pipe(sass())
-    // Write the resulting CSS in the output folder
-    .pipe(gulp.dest(sass_output));
+	var tsResult = gulp
+	.src(sourceTs)
+	.pipe(tsc())
+	
+	return tsResult.js
+			.pipe(gulp.dest(config.outputTs));
 });
+
+gulp.task('sass', function () {
+  return gulp.src(config.inputSass)
+    .pipe(sass({outputStyle:'expanded'}).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(config.outputSass));
+});
+
+gulp.task("watch",function() {
+	gulp.watch(config.inputSass, ['sass']);
+	gulp.watch(config.inputTs,['tsc-compile']);
+});
+
+gulp.task("default",["sass","tsc-compile","watch"]);

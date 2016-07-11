@@ -1,0 +1,19 @@
+// import normalize
+@import "../../../bower_components/normalize-scss/_normalize.scss";
+
+// import bourbon
+@import "../../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+
+// import Breakpoint
+@import "../../../bower_components/breakpoint/breakpoint/_breakpoint.scss";
+
+// import include media
+@import "../../../bower_components/include-media/dist/_include-media.scss";
+
+// import neat
+@import "../../../bower_components/neat/app/assets/stylesheets/_neat.scss";
+
+.container {
+	@include outer-container();
+	margin:0;
+}

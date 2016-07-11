@@ -1,7 +1,5 @@
 <?php
 
-class index {
-	public function __construct() {
-		echo "hello world";
-	}
+class Index extends Controller{
+
 }

@@ -11,12 +11,12 @@
 class Elius {
 	protected $_controllers = "index",
 			$_methods = "index",
-			$_params = [],
+			$_parameters = [],
 			$_url;
 
 	public function __construct() {
 		$this->_url = $this->getUrl();
-		print_r($this->_url);
+		$this->frontController();
 	}
 
 	public function getUrl() {
@@ -28,5 +28,34 @@ class Elius {
 
 			return $url;
 		endif;
+	}
+
+	public function getcontroller() {
+		if(file_exists(CONTROLLERS_DIR.DS.'controller.'.strtolower($this->_url[0]).'.php')) {
+			$this->_controllers = $this->_url[0];
+			array_shift($this->_url);
+		}
+		require_once CONTROLLERS_DIR.DS.'controller.'.strtolower($this->_controllers).'.php';
+		$this->_controllers = new $this->_controllers();
+	}
+
+	public function getmethods() {
+		if(isset($this->_url[0])) {
+			$this->_methods = $this->_url[0];
+			array_shift($this->_url);
+		}
+	}
+
+	public function getparams() {
+		if(method_exists($this->_controllers, $this->_methods)) {
+			$this->_parameters = $this->_url ? array_values($this->_url) : [];
+			call_user_func_array([$this->_controllers,$this->_methods], $this->_parameters);
+		}
+	}
+
+	public function frontController() {
+		$this->getcontroller();
+		$this->getmethods();
+		$this->getparams();
 	}
 }

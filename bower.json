@@ -1,0 +1,31 @@
+{
+  "name": "elius-mvc-framework",
+  "description": "Gulp",
+  "main": "gulpfile.js",
+  "authors": [
+    "Peterson Umoke"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/peterson-umoke/elius-mvc",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "include-media": "^1.4.6",
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "include-media": "^1.4.6",
+    "jquery": "^3.1.0",
+    "breakpoint": "^4.6.4",
+    "bourbon": "^4.2.7",
+    "neat": "^1.8.0",
+    "sassy-buttons": "*",
+    "normalize-scss": "^3.0.3"
+  }
+}

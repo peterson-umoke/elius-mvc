@@ -17,3 +17,27 @@ if(DEVELOPMENT_ENVIRONMENT == true) {
 	ini_set('log_errors', 'On');
 	ini_set('error_log',BASE.'tmp'.DS.'logs'.DS.'error.log');
 }
+
+function home_url() {
+	echo SITE_URL;
+}
+
+function get_home_url() {
+	return SITE_URL;
+}
+
+function theme_dir() {
+	echo PUBLIC_DIR;
+}
+
+function get_theme_dir() {
+	return PUBLIC_DIR;
+}
+
+function site_url() {
+	echo BASE_URL;
+}
+
+function get_site_url() {
+	return BASE_URL;
+}
